@@ -3,7 +3,6 @@ package controller;
 import model.blackjack.Blackjack;
 import model.crazyeights.CrazyEights;
 import model.gops.Gops;
-import model.war.War;
 import view.TextInterface;
 
 public class GameLauncher {
@@ -11,15 +10,12 @@ public class GameLauncher {
 	public void start() {
 		String name = TextInterface.getResponse("Welcome to CardGames! What is your name?");
 		
-		TextInterface.display("Available Games: War, Blackjack, GOPS, Crazy Eights");
+		TextInterface.display("Available Games: Blackjack, GOPS, Crazy Eights");
 		
 		while (true) {
-			String response = TextInterface.getValidResponse("What game would you like to play?", "War", "Blackjack", "GOPS", "Crazy Eights", "Quit");
+			String response = TextInterface.getValidResponse("What game would you like to play?", "Blackjack", "GOPS", "Crazy Eights", "Quit");
 			
 			switch (response.toUpperCase()) {
-				case "WAR":
-					new War(name).play();
-					break;
 				case "BLACKJACK":
 					new Blackjack(name).play();
 					break;
