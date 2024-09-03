@@ -1,16 +1,10 @@
 package controller;
 
 import model.blackjack.Blackjack;
-import model.common.CardGame;
 import model.crazyeights.CrazyEights;
 import model.gops.Gops;
 import model.war.War;
 import view.TextInterface;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Supplier;
 
 public class GameLauncher {
 	
