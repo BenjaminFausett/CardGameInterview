@@ -85,6 +85,10 @@ public class CardCollection extends AbstractList<Card> {
 		return this.get(cards.size() - 1);
 	}
 	
+	public boolean remove(Card card) {
+		return cards.remove(card);
+	}
+	
 	@Override
 	public Card get(int index) {
 		return cards.get(index);

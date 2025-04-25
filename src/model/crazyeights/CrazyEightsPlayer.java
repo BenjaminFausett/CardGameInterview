@@ -24,6 +24,7 @@ public class CrazyEightsPlayer extends Player {
 			TextInterface.display(String.format("%s, %s", name, question));
 			Card aiCard = getValidOptions(targetCard).drawRandom();
 			TextInterface.display(aiCard.getDisplayName());
+			this.hand.remove(aiCard);
 			return aiCard;
 		} else {
 			Card potentialCard = this.playCard(question);
