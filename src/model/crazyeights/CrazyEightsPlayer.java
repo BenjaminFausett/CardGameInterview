@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class CrazyEightsPlayer extends Player {
 	
-	public CrazyEightsPlayer(String name, boolean isAi) {
-		super(name, isAi);
+	public CrazyEightsPlayer(String name, boolean isNpc) {
+		super(name, isNpc);
 	}
 	
 	public boolean hasValidCard(Card targetCard) {
@@ -20,7 +20,7 @@ public class CrazyEightsPlayer extends Player {
 	public Card chooseCardToPlay(Card targetCard) {
 		String question = "What card would you like to play?";
 		
-		if (isAi) {
+		if (isNpc) {
 			TextInterface.display(String.format("%s, %s", name, question));
 			Card aiCard = getValidOptions(targetCard).drawRandom();
 			TextInterface.display(aiCard.getDisplayName());

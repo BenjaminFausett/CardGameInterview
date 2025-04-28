@@ -9,8 +9,8 @@ public class BlackjackPlayer extends Player {
 	
 	private boolean stayed;
 	
-	public BlackjackPlayer(String name, boolean isAi) {
-		super(name, isAi);
+	public BlackjackPlayer(String name, boolean isNpc) {
+		super(name, isNpc);
 		stayed = false;
 	}
 	
@@ -39,7 +39,7 @@ public class BlackjackPlayer extends Player {
 	
 	public String hitOrStay() {
 		String question = String.format("%s, your hand total is %d. Would you like to Hit or Stay?", name, getHandTotal());
-		if (isAi) {
+		if (isNpc) {
 			TextInterface.display(question);
 			if (getHandTotal() < 17) {
 				TextInterface.display("Hit");

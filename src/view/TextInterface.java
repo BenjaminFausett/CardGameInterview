@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public final class TextInterface {
 	
-	private static final double DISPLAY_DELAY = 0.75; // delay in seconds to throttle text output speed
+	private static final double DISPLAY_DELAY = 0; // delay in seconds to throttle text output speed
 	
 	private static final Scanner scanner = new Scanner(System.in);
 	private static Instant lastDisplayTime = Instant.now();

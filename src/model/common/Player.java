@@ -11,12 +11,18 @@ public class Player {
 	
 	protected Hand hand;
 	protected final String name;
-	protected final boolean isAi;
+	protected final boolean isNpc;
 	
-	public Player(String name, boolean isAi) {
+	
+	/**
+	 * Constructor for a Player
+	 * @param name The name of the player
+	 * @param isNpc true if this player will be controlled by the computer, false if this player is controlled by a real person
+	 */
+	public Player(String name, boolean isNpc) {
 		this.name = name;
 		this.hand = new Hand();
-		this.isAi = isAi;
+		this.isNpc = isNpc;
 	}
 	
 	public void sortHand() {
@@ -53,13 +59,13 @@ public class Player {
 	
 	/**
 	 * Allows the player to select a card to play from their hand. This method continuously prompts the player
-	 * until a valid card is selected. If the play is an AI, then the aiChoice card will instead be played.
+	 * until a valid card is selected. If the play is an AI, then a random card will instead be played.
 	 *
 	 * @param question The question the player will be prompted
 	 * @return the card selected by the player
 	 */
 	public Card playCard(String question) {
-		if (isAi) {
+		if (isNpc) {
 			return this.hand.drawRandom();
 		}
 		

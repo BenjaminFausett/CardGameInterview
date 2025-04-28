@@ -16,8 +16,8 @@ public class GopsPlayer extends Player {
 	private final Card.Suit suit;
 	private int score;
 	
-	public GopsPlayer(String name, boolean isAi, Card.Suit suit) {
-		super(name, isAi);
+	public GopsPlayer(String name, boolean isNpc, Card.Suit suit) {
+		super(name, isNpc);
 		score = 0;
 		this.random = new Random();
 		this.suit = suit;
@@ -41,7 +41,7 @@ public class GopsPlayer extends Player {
 	
 	public Card getBid(int prizeCardValue) {
 		String question = "Which card will you bid?";
-		if (isAi) {
+		if (isNpc) {
 			TextInterface.display(String.format("%s, %s", name, question));
 			TextInterface.display("[]");
 			return this.selectAiBidCard(prizeCardValue);
