@@ -1,21 +1,35 @@
 package model.war;
 
 import model.common.*;
-import view.TextInterface;
 
 import java.util.Optional;
 
+/**
+ * Represents a War card game, extending the {@link CardGame} class.
+ * <p>
+ * War is a simple card game where two players compete to win all the cards by playing
+ * higher-ranked cards against each other.
+ *
+ * <p><b>Gameplay Overview:</b></p>
+ * <ul>
+ *   <li>The deck is shuffled and split evenly between two players.</li>
+ *   <li>Each player reveals the top card of their deck simultaneously.</li>
+ *   <li>The player with the higher-ranked card wins both cards and places them at the bottom of their deck.</li>
+ *   <li>If both cards have the same rank a "war" happens:
+ *     <ul>
+ *       <li>Each player places three face-down cards and one face-up card.</li>
+ *       <li>The face-up cards are compared; the higher wins all cards on the table.</li>
+ *       <li>If another tie occurs, the war process repeats recursively.</li>
+ *     </ul>
+ *   </li>
+ *   <li>The game continues until one player has all the cards.</li>
+ * </ul>
+ *
+ */
 public class War extends CardGame {
 	
-	private final Player player;
-	private final Player computer;
-	
-	private final CardCollection winnerPot;
-	
 	public War(String playerName) {
-		this.player = new Player(playerName, false);
-		this.computer = new Player("Computer", true);
-		this.winnerPot = new CardCollection();
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
@@ -25,70 +39,26 @@ public class War extends CardGame {
 	
 	@Override
 	protected void resetGame() {
-		player.reset();
-		computer.reset();
-		winnerPot.discardAll();
-		
-		Deck deck = new Deck();
-		deck.shuffle();
-		
-		while (deck.size() >= 2) {
-			player.addCard(deck.drawFirst());
-			computer.addCard(deck.drawFirst());
-		}
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected void playRound() {
-		Card playerCard = player.playTopCard();
-		Card computerCard = computer.playTopCard();
-		
-		TextInterface.display(String.format("%s: %s", player.getName(), playerCard.getRankName()));
-		TextInterface.display(String.format("%s: %s", computer.getName(), computerCard.getRankName()));
-		
-		winnerPot.add(playerCard);
-		winnerPot.add(computerCard);
-		winnerPot.shuffle();
-		
-		if (playerCard.getValue() > computerCard.getValue()) {
-			TextInterface.display(String.format("%s won and gained %d cards", player.getName(), winnerPot.size()));
-			player.addCards(winnerPot.drawAll());
-		} else if (computerCard.getValue() > playerCard.getValue()) {
-			TextInterface.display(String.format("%s won and gained %d cards", computer.getName(), winnerPot.size()));
-			computer.addCards(winnerPot.drawAll());
-		} else {
-			TextInterface.display("Tie, its a war!");
-			if (player.hasCards() && computer.hasCards()) {
-				TextInterface.display("Both players placed a card face down");
-				winnerPot.add(player.playTopCard());
-				winnerPot.add(computer.playTopCard());
-			} else {
-				TextInterface.display("Out of cards, game over!");
-			}
-		}
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected boolean isGameOver() {
-		return !player.hasCards() || !computer.hasCards();
-	}
-	
-	@Override
-	protected void displayFinalScore() {
-		String playerScore = String.format("%s: %d", player.getName(), player.handSize());
-		String computerScore = String.format("%s: %d", computer.getName(), computer.handSize());
-		
-		TextInterface.display(String.format("%s\n%s", playerScore, computerScore));
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected Optional<Player> getWinner() {
-		if (player.hasCards()) {
-			return Optional.of(player);
-		}
-		if (computer.hasCards()) {
-			return Optional.of(computer);
-		}
-		return Optional.empty();
+		throw new UnsupportedOperationException("This method is not yet implemented");
+	}
+	
+	@Override
+	protected void displayFinalScore() {
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 }

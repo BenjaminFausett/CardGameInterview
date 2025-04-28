@@ -11,9 +11,8 @@ public class GameLauncher {
 	public void start() {
 		String name = TextInterface.getResponse("Welcome to CardGames! What is your name?");
 		
-		TextInterface.display("Available Games: War, Blackjack, GOPS, Crazy Eights");
-		
 		while (true) {
+			TextInterface.display("Available Games: War, Blackjack, GOPS, Crazy Eights");
 			String response = TextInterface.getValidResponse("What game would you like to play?", "War", "Blackjack", "GOPS", "Crazy Eights", "Quit");
 			
 			switch (response.toUpperCase()) {

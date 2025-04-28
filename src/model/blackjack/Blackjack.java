@@ -1,31 +1,42 @@
 package model.blackjack;
 
-import model.common.CardGame;
-import model.common.Deck;
-import model.common.Player;
-import view.TextInterface;
+import model.common.*;
 
 import java.util.Optional;
 
+
 /**
- * Represents a Blackjack card game, extending the {@link CardGame} class. This class is responsible
- * for managing the game mechanics specific to Blackjack, such as dealing cards, handling player actions (hit or stay),
- * and determining game outcomes including winner determination based on Blackjack rules.
+ * Represents a Blackjack card game, extending the {@link CardGame} class.
  * <p>
- * The game involves a dealer and a player, both represented by {@link BlackjackPlayer}. The dealer plays according to
- * standard casino rules (typically standing on all 17s) and the player's actions are determined by user input. The game
- * continues until either the player or the dealer decides to stay or busts.
+ * Blackjack is a card game where players compete against a dealer to get a hand total
+ * as close to 21 as possible without exceeding it ("busting").
+ *
+ * <p><b>Gameplay Overview:</b></p>
+ * <ul>
+ *   <li>The player and the dealer are initially dealt two cards.</li>
+ *   <li>Card values: Number cards are worth their number, face cards (Jack, Queen, King) are worth 10,
+ *       and Aces are worth 1 or 11 (whichever is best for the hand).</li>
+ *   <li>The Players take turns choosing to "hit" (take another card) or "stand" (keep current hand).</li>
+ *   <li>If a hand exceeds 21, it busts and loses automatically.</li>
+ *   <li>After the player chooses to stand, the dealer plays by hitting until reaching 17, at which point the dealer stands and the game is over.</li>
+ *   <li>Winning conditions:
+ *     <ul>
+ *       <li>Player wins if: Player hand ≤ 21 and greater than dealer's hand</li>
+ *       <li>Player wins if: Dealer busts and player does not</li>
+ *
+ *       <li>Dealer wins if: Player busts</li>
+ *       <li>Dealer wins if: Dealer hand ≤ 21 and greater than player's hand</li>
+ *
+ *       <li>Nobody wins if: Both players have the same hand value</li>
+ *     </ul>
+ *   </li>
+ * </ul>
+ *
  */
 public class Blackjack extends CardGame {
 	
-	private final BlackjackPlayer dealer;
-	private final BlackjackPlayer player;
-	private Deck deck;
-	
 	public Blackjack(String playerName) {
-		super();
-		this.dealer = new BlackjackPlayer("Dealer", true);
-		this.player = new BlackjackPlayer(playerName, false);
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
@@ -35,72 +46,27 @@ public class Blackjack extends CardGame {
 	
 	@Override
 	protected void resetGame() {
-		deck = new Deck();
-		deck.shuffle();
-		
-		dealer.reset();
-		dealer.addCard(deck.drawFirst());
-		
-		player.reset();
-		player.addCards(deck.drawFirst(2));
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected void playRound() {
-		BlackjackPlayer activePlayer = getActivePlayer();
-		
-		String action = activePlayer.hitOrStay();
-		
-		if (action.equalsIgnoreCase("Hit")) {
-			activePlayer.addCard(deck.drawFirst());
-		}
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected boolean isGameOver() {
-		if (player.hasBusted() || dealer.hasBusted()) {
-			return true;
-		}
-		
-		return player.hasStayed() && dealer.hasStayed();
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected Optional<Player> getWinner() {
-		if (player.hasBusted()) {
-			return Optional.of(dealer);
-		}
-		if (dealer.hasBusted()) {
-			return Optional.of(player);
-		}
-		
-		int dealerScore = dealer.getHandTotal();
-		int playerScore = player.getHandTotal();
-		
-		if (dealerScore > playerScore) {
-			return Optional.of(dealer);
-		}
-		if (playerScore > dealerScore) {
-			return Optional.of(player);
-		}
-		
-		return Optional.empty();
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 	@Override
 	protected void displayFinalScore() {
-		String playerScore = String.format("%s: %d", player.getName(), player.getHandTotal());
-		String dealerScore = String.format("%s: %d", dealer.getName(), dealer.getHandTotal());
-		
-		TextInterface.display(String.format("%s\n%s", playerScore, dealerScore));
-	}
-	
-	private BlackjackPlayer getActivePlayer() {
-		if (!player.hasStayed()) {
-			return player;
-		}
-		
-		return dealer;
+		throw new UnsupportedOperationException("This method is not yet implemented");
 	}
 	
 }

@@ -39,7 +39,7 @@ public abstract class CardGame {
 			playAgain = TextInterface.getValidResponse("\nPlay " + this.getGameName() + " again?", "Yes", "No").equalsIgnoreCase("Yes");
 			
 		}
-		TextInterface.display("\nThanks for playing " + this.getGameName());
+		TextInterface.display("\nExiting " + this.getGameName());
 	}
 	
 	/**
