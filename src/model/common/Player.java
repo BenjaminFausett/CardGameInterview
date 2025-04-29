@@ -9,14 +9,15 @@ import java.util.Optional;
 
 public class Player {
 	
-	protected Hand hand;
 	protected final String name;
 	protected final boolean isNpc;
+	protected Hand hand;
 	
 	
 	/**
 	 * Constructor for a Player
-	 * @param name The name of the player
+	 *
+	 * @param name  The name of the player
 	 * @param isNpc true if this player will be controlled by the computer, false if this player is controlled by a real person
 	 */
 	public Player(String name, boolean isNpc) {

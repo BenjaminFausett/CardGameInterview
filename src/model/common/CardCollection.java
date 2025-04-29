@@ -4,8 +4,8 @@ import java.util.*;
 
 public class CardCollection extends AbstractList<Card> {
 	
-	protected List<Card> cards;
 	protected static final Random random = new Random();
+	protected List<Card> cards;
 	
 	public CardCollection() {
 		this.cards = new ArrayList<>();

@@ -55,7 +55,7 @@ public class CrazyEights extends CardGame {
 		
 		CrazyEightsPlayer currentPlayer = getCurrentPlayer();
 		
-		while(!currentPlayer.hasValidCard(topCard)) {
+		while (!currentPlayer.hasValidCard(topCard)) {
 			if (deck.isEmpty()) {
 				this.deck.addAll(this.discardPile);
 				this.discardPile.discardAll();
