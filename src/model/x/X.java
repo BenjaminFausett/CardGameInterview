@@ -8,7 +8,7 @@ import java.util.Optional;
 public class X extends CardGame {
 	
 	public X(String playerName) {
-		throw new UnsupportedOperationException("This method is not yet implemented");
+	
 	}
 	
 	@Override
