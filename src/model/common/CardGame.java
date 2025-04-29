@@ -26,18 +26,21 @@ public abstract class CardGame {
 		while (playAgain) {
 			TextInterface.display("Setting up a new game of " + this.getGameName());
 			this.resetGame();
+			
 			while (!this.isGameOver()) {
 				this.playRound();
 			}
+			
 			this.displayFinalScore();
 			Optional<Player> winner = this.getWinner();
+			
 			if (winner.isPresent()) {
 				TextInterface.display("\n" + winner.get().getName() + " wins!");
 			} else {
 				TextInterface.display("\nTie game, nobody wins!");
 			}
-			playAgain = TextInterface.getValidResponse("\nPlay " + this.getGameName() + " again?", "Yes", "No").equalsIgnoreCase("Yes");
 			
+			playAgain = TextInterface.getValidResponse("\nPlay " + this.getGameName() + " again?", "Yes", "No").equalsIgnoreCase("Yes");
 		}
 		TextInterface.display("\nExiting " + this.getGameName());
 	}
