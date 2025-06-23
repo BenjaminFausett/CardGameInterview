@@ -2,7 +2,6 @@ package controller;
 
 import model.crazyeights.CrazyEights;
 import model.gops.Gops;
-import model.x.X;
 import view.TextInterface;
 
 public class GameLauncher {
@@ -12,7 +11,7 @@ public class GameLauncher {
 		
 		while (true) {
 			TextInterface.display("Available Games: GOPS, Crazy Eights, X");
-			String response = TextInterface.getValidResponse("What game would you like to play?", "GOPS", "Crazy Eights", "X", "Quit");
+			String response = TextInterface.getValidResponse("What game would you like to play?", "GOPS", "Crazy Eights", "Quit");
 			
 			switch (response.toUpperCase()) {
 				case "GOPS":
@@ -20,9 +19,6 @@ public class GameLauncher {
 					break;
 				case "CRAZY EIGHTS":
 					new CrazyEights(name).play();
-					break;
-				case "X":
-					new X(name).play();
 					break;
 				case "QUIT":
 					System.exit(0);
