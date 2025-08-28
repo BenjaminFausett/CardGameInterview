@@ -13,6 +13,12 @@ import java.util.Optional;
  */
 public abstract class CardGame {
 	
+	protected GameName gameName;
+	
+	public CardGame(GameName gameName) {
+		this.gameName = gameName;
+	}
+	
 	/**
 	 * Starts and manages the card game loop. It continues to play rounds of the game
 	 * until the game is over. It handles game resets, displays game starts,
@@ -50,7 +56,9 @@ public abstract class CardGame {
 	 *
 	 * @return the name of the game
 	 */
-	protected abstract String getGameName();
+	public  String getGameName() {
+		return gameName.getDisplayName();
+	}
 	
 	/**
 	 * Resets the game to a clean state before starting a new game.

@@ -21,13 +21,9 @@ public class CrazyEights extends CardGame {
 	private int round;
 	
 	public CrazyEights(String playerName) {
+		super(GameName.CRAZY_EIGHTS);
 		this.player = new CrazyEightsPlayer(playerName, false);
 		this.computer = new CrazyEightsPlayer("Computer", true);
-	}
-	
-	@Override
-	protected String getGameName() {
-		return "Crazy Eights";
 	}
 	
 	@Override

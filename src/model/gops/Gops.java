@@ -1,9 +1,6 @@
 package model.gops;
 
-import model.common.Card;
-import model.common.CardGame;
-import model.common.Deck;
-import model.common.Player;
+import model.common.*;
 import view.TextInterface;
 
 import java.util.Optional;
@@ -26,15 +23,10 @@ public class Gops extends CardGame {
 	private final Deck deck;
 	
 	public Gops(String playerName) {
-		super();
+		super(GameName.GOPS);
 		this.deck = new Deck();
 		this.player = new GopsPlayer(playerName, false, Card.Suit.HEART);
 		this.computer = new GopsPlayer("Computer", true, Card.Suit.SPADE);
-	}
-	
-	@Override
-	protected String getGameName() {
-		return "GOPS";
 	}
 	
 	@Override
